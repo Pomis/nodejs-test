@@ -6,9 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var mongoose = require('mongoose').Mongoose;
 
 var app = express();
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,7 +24,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-db = mongoose.connect('mongodb://localhost/nodepad');
 
 app.use('/', routes);
 app.use('/users', users);
